@@ -1,6 +1,6 @@
 import unittest
 import time
-import thread6
+from thread_decorator import threaded, run_threaded, run_chunked
 
 
 class TestThread6(unittest.TestCase):
@@ -10,7 +10,7 @@ class TestThread6(unittest.TestCase):
     def test_threaded_decorator(self):
         result = []
 
-        @thread6.threaded(False)
+        @threaded(False)
         def append_x(arr):
             time.sleep(1)
             arr.append("x")
@@ -29,7 +29,7 @@ class TestThread6(unittest.TestCase):
         self.assertEqual(result[1], "x")
 
     def test_get_error(self):
-        @thread6.threaded(False)
+        @threaded(False)
         def raise_error():
             raise ValueError()
             return True
@@ -49,7 +49,7 @@ class TestThread6(unittest.TestCase):
             return True
 
         # start the threaded function call
-        a = thread6.run_threaded(append_x, result)
+        a = run_threaded(append_x, result)
         result.append("y")
         # y should be appended first then x since main thread
         # is not waiting for x to finish
@@ -67,7 +67,7 @@ class TestThread6(unittest.TestCase):
         def append_nums(nums, arr):
             arr.extend(nums)
 
-        manager = thread6.run_chunked(append_nums, range(10),
+        manager = run_chunked(append_nums, range(10),
                                       threads=8, args=[results])
         self.assertEqual(len(results), 10)
         self.assertEqual(results, list(range(10)))
