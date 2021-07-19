@@ -1,4 +1,4 @@
-# thread6
+# Thread Decorator
 Simple parallel processing interface for python
 
 ## Why?
@@ -9,7 +9,7 @@ Python 3+
 
 ## Installation
 ```shell
-$ pip install thread6
+$ pip install thread_decorator
 ```
 
 ## Quickstart
