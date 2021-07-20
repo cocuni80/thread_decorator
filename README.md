@@ -13,17 +13,16 @@ $ pip install thread_decorator
 ```
 
 ## Quickstart
-Use the `threaded` decorator to turn a method into a threaded method. That's it!
+Use the `threaded` decorator to turn a method into a threaded method.
 ```python
-@thread6.threaded()
-def threaded_print():
-    print("")
-    return 1
+@threaded()
+def my_func():
+    '''Your Code'''
 ```
 
 Alternatively, use `run_threaded` function
 ```python
-thread6.run_threaded(threaded_print)
+run_threaded(my_func)
 ```
 
 Both the `threaded` decorator and `run_threaded` method will return an instance of
@@ -40,7 +39,7 @@ def update_items(items):
     ...
 
 items = [...]
-thread6.run_chunked(update_items, items)
+run_chunked(update_items, items)
 ```
 `.await_output()` also work with `run_chunked` but will return a list of return values instead
 
@@ -49,7 +48,6 @@ Run tests with
 ```python
 python tests.py
 ```
-
 
 ## Todo
 - [x] threaded function decorator
