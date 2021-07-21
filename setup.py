@@ -7,7 +7,7 @@ INSTALL_REQUIRES = ['requests']
 
 setuptools.setup(
     name="thread_decorator",
-    version="0.1",
+    version="0.2",
     author="Jorge Riveros",
     author_email="christian.riveros@outlook.com",
     license='MIT',
